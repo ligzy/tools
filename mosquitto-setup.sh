@@ -33,6 +33,9 @@
 # Replace set -e and exit with non-zero status if we experience a failure
 trap 'exit' ERR
 
+# Default location - overwritten with preceding path if one of them exists
+HOSTNAME=$HOSTNAME
+
 # Array of paths to try and use
 PATHS=( "/etc/mosquitto/conf.d/" "/etc/mosquitto/" )
 
@@ -122,7 +125,7 @@ sed -Ee 's/^[ 	]+%%% //' <<!ENDMOSQUITTOCONF > $MOSQPATH
 	%%% retained_persistence true
 	%%% 
 	%%% #listener 1883
-	%%% listener 1883 127.0.0.1
+	%%% listener 1883 0.0.0.0
 	%%% 
 	%%% listener 8883
 	%%% tls_version tlsv1
