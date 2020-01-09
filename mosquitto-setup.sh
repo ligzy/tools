@@ -130,8 +130,8 @@ sed -Ee 's/^[ 	]+%%% //' <<!ENDMOSQUITTOCONF > $MOSQPATH
 	%%% listener 8883
 	%%% tls_version tlsv1
 	%%% cafile $MOSQHOME/ca.crt
-	%%% certfile $MOSQHOME/server.crt
-	%%% keyfile $MOSQHOME/server.key
+	%%% certfile $MOSQHOME/$HOSTNAME.crt
+	%%% keyfile $MOSQHOME/$HOSTNAME.key
 	%%% require_certificate false
 !ENDMOSQUITTOCONF
 
