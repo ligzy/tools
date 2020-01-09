@@ -94,7 +94,7 @@ fi
 
 # Export TARGET variable for use in generate-CA.sh
 export TARGET=$MOSQHOME
-eval "`dirname \"$0\"`/TLS/generate-CA.sh"
+eval "`dirname \"$0\"`/TLS/generate-CA.sh $HOSTNAME"
 
 sed -Ee 's/^[ 	]+%%% //' <<!ENDMOSQUITTOCONF > $MOSQPATH
 	%%% # allow_anonymous false
